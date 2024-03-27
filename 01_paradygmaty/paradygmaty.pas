@@ -2,22 +2,34 @@ program paradygmaty;
 
 uses SysUtils, Math;
 
-const
-	arraySize: Integer = 50;
-	max: Integer = 101;
-	rangeFix: Integer = 1;
-var
-	arrayIndex: Integer;
-	randomNumbers : array of Integer;
+const rangeFix: Integer = 1;
 
-procedure generateRandomNumbers;
+var 
+	arrayIndex: Integer;
+	randomNumbers: array of Integer;
+
+procedure generateRandomNumbers(const first, last, size: Integer);
+var offset: Integer;
 begin
-	SetLength(randomNumbers, arraySize);
+	if size <= 0 then
+	begin
+		WriteLn('array size must be greater than 0');
+		exit;
+	end;
+
+	if first > last then
+	begin
+		WriteLn('last index must be greater than first');
+		exit;
+	end;
+	
+	SetLength(randomNumbers, size);
 	Randomize;
+	offset := last - first;
 
 	for arrayIndex := Low(randomNumbers) to High(randomNumbers) do
 	begin
-		randomNumbers[arrayIndex] := random(max);
+		randomNumbers[arrayIndex] := random(offset + rangeFix) + first;
 	end;
 end;
 
@@ -39,8 +51,8 @@ begin
 end;
 
 begin
-	generateRandomNumbers;
-	sort(randomNumbers);
+	generateRandomNumbers(30, 80, 100);
+	sort(randomNumbers);	
 
 	for arrayIndex := Low(randomNumbers) to High(randomNumbers) do
 	begin
