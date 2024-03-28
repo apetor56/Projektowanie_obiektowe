@@ -82,7 +82,32 @@ begin
 	WriteLn('');
 end;
 
+procedure print(const data: array of Integer);
+var arrayIndex: Integer;
 begin
+	for arrayIndex := Low(data) to High(data) do
+		Write(data[arrayIndex], ' ');
+	WriteLn('');
+end;
+
+var sampleData: array[1..50] of Integer;
+const
+	first: Integer = 0;
+	last: Integer = 100;
+begin
+	WriteLn('Example of number generation and sort algorithm');
+
+	WriteLn('Random generation:');
+	generateRandomNumbers(first, last, sampleData);
+	print(sampleData);
+
+	WriteLn('Bubble sort:');
+	sort(sampleData);
+	print(sampleData);
+
+	WriteLn('');
+
+	WriteLn('Tests');
 	testSortRandomArray();
 	testSortSortedArray();
 	testSortReversedArray();
