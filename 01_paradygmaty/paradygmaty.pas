@@ -1,4 +1,11 @@
-program paradygmaty;
+unit paradygmaty;
+
+interface
+
+procedure generateRandomNumbers(const first, last: Integer; var outputData: array of Integer);
+procedure sort(var data: array of Integer);
+
+implementation
 
 uses SysUtils, Math;
 
@@ -8,28 +15,21 @@ var
 	arrayIndex: Integer;
 	randomNumbers: array of Integer;
 
-procedure generateRandomNumbers(const first, last, size: Integer);
+procedure generateRandomNumbers(const first, last: Integer; var outputData: array of Integer);
 var offset: Integer;
 begin
-	if size <= 0 then
-	begin
-		WriteLn('array size must be greater than 0');
-		exit;
-	end;
-
 	if first > last then
 	begin
 		WriteLn('last index must be greater than first');
 		exit;
 	end;
 	
-	SetLength(randomNumbers, size);
 	Randomize;
 	offset := last - first;
 
-	for arrayIndex := Low(randomNumbers) to High(randomNumbers) do
+	for arrayIndex := Low(outputData) to High(outputData) do
 	begin
-		randomNumbers[arrayIndex] := random(offset + rangeFix) + first;
+		outputData[arrayIndex] := random(offset + rangeFix) + first;
 	end;
 end;
 
@@ -50,13 +50,6 @@ begin
 		end;
 end;
 
-begin
-	generateRandomNumbers(30, 80, 100);
-	sort(randomNumbers);	
 
-	for arrayIndex := Low(randomNumbers) to High(randomNumbers) do
-	begin
-		Writeln(randomNumbers[arrayIndex]);
-	end;
 end.
 
