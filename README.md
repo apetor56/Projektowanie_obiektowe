@@ -26,3 +26,19 @@ Należy stworzyć aplikację webową na bazie frameworka Symfony na obrazie kprz
 ❌ 4.5 Należy stworzyć widoki do wszystkich kontrolerów
 
 ❌ 5.0 Stworzenie panelu administracyjnego z mockowanym logowaniem
+
+[**Zadanie 3 Wzorce kreacyjne**](03_wzorce_kreacyjne/)
+
+Spring Boot (Kotlin)
+
+Proszę stworzyć prosty serwis do autoryzacji, który zasymuluje autoryzację użytkownika za pomocą przesłanej nazwy użytkownika oraz hasła. Serwis powinien zostać wstrzyknięty do kontrolera za pomocą anotacji @Autowired. Aplikacja ma oczywiście zawierać jeden kontroler i powinna zostać napisana w języku Kotlin. Oparta powinna zostać na frameworku Spring Boot, podobnie jak na zajęciach. Serwis do autoryzacji powinien być singletonem.
+
+✅ 3.0 Należy stworzyć jeden kontroler wraz z danymi wyświetlanymi z listy na endpoint’cie w formacie JSON - Kotlin + Spring Boot: [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/5ee0daf9a8c72a5ff8eebc29706582a045ca3363)
+
+✅ 3.5 Należy stworzyć klasę do autoryzacji (mock) jako Singleton w formie eager: [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/ad8f91181bd2ff0c2735e7e27e1893d3e5f34d94)
+
+✅ 4.0 Należy obsłużyć dane autoryzacji przekazywane przez użytkownika: [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/4d447ac43ae0aa801a617997804bdb13c72db12f)
+
+✅ 4.5 Należy wstrzyknąć singleton do głównej klasy via @Autowired: [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/59f64035e8d5ce742834da525cc693660e92bdff)
+
+✅ 5.0 Obok wersji Eager do wyboru powinna być wersja Singletona w wersji lazy: [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/771886557273f3fb9e2e64c0330d367048c1f8a5)
