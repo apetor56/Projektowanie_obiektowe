@@ -8,4 +8,4 @@ https://echo.labstack.com
 ____________________________________O/_______
                                     O\
 ⇨ http server started on [::]:8080
-signal: terminated
+signal: interrupt
