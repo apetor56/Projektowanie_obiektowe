@@ -56,3 +56,17 @@ Należy stworzyć aplikację w Go na frameworku echo. Aplikacja ma mieć jeden e
 ❌ 4.5 Należy zapisać pobrane dane z zewnątrz do bazy danych
 
 ❌ 5.0 Należy rozszerzyć endpoint na więcej niż jedną lokalizację (Pogoda), lub akcje (Giełda) zwracając JSONa
+
+[**Zadanie 5 Wzorce behawioralne React (JavaScript/Typescript)**](05_wzorce_bechawioralne)
+
+Należy stworzyć aplikację kliencką wykorzystując bibliotekę React.js. W ramach projektu należy stworzyć trzy komponenty: Uslugi, Zamowienia oraz Płatności. Zamówienia oraz Płatności powinny wysyłać do aplikacji serwerowej dane, a w Uslugach powinniśmy pobierać dane o dostępnych usługach z aplikacji serwerowej. Dane pomiędzy wszystkimi komponentami powinny być przesyłane za pomocą React hooks.
+
+✅ 3.0 W ramach projektu należy stworzyć dwa komponenty: Produkty oraz Płatności; Płatności powinny wysyłać do aplikacji serwerowej dane, a w Produktach powinniśmy pobierać dane o produktach z aplikacji serwerowej - [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/90fd52462e6bee166218b9ca84310fc8f3f81961)
+
+✅ 3.5 Należy dodać Koszyk wraz z widokiem; należy wykorzystać routing - [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/b3682d9da2ea6c47741e7ff467cc6e0986fcdd96)
+
+✅ 4.0 Dane pomiędzy wszystkimi komponentami powinny być przesyłane za pomocą React hooks - [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/b3682d9da2ea6c47741e7ff467cc6e0986fcdd96)
+
+❌ 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz kliencką na dockerze via docker-compose
+
+❌ 5.0 Należy wykorzystać axios’a oraz dodać nagłówki pod CORS
