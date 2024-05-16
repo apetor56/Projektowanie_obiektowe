@@ -1,5 +1,3 @@
-// Server.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -18,6 +16,8 @@ const initialProducts = [
     { id: 5, name: 'Gothic Remake CE', price: 1000.00, description: 'Don\'t buy it.' }
 ];
 
+let cartItems = [];
+
 app.get('/products', (req, res) => {
     res.json(initialProducts);
 });
@@ -26,6 +26,26 @@ app.post('/payments', (req, res) => {
     const { cardNumber, expiryDate, cvv } = req.body;
     console.log('Payment details:', { cardNumber, expiryDate, cvv });
     res.status(200).json({ message: `Payment processed successfully.` });
+});
+
+app.post('/cart', (req, res) => {
+    const { productId } = req.body;
+    const product = initialProducts.find(product => product.id === productId);
+    if (product) {
+        const existingCartItemIndex = cartItems.findIndex(item => item.product.id === productId);
+        if (existingCartItemIndex !== -1) {
+            cartItems[existingCartItemIndex].quantity++;
+        } else {
+            cartItems.push({ product, quantity: 1 });
+        }
+        res.status(200).json({ message: 'Product added to cart.' });
+    } else {
+        res.status(404).json({ message: 'Product not found.' });
+    }
+});
+
+app.get('/cart', (req, res) => {
+    res.json(cartItems);
 });
 
 app.listen(PORT, () => {

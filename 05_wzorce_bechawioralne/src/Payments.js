@@ -1,12 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Payments = () => {
+    const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
     const [cardNumber, setCardNumber] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
     const [cvv, setCvv] = useState('');
 
-    const totalAmount = 100;
+    useEffect(() => {
+        axios.get('http://localhost:5000/cart')
+            .then(response => {
+                setCartItems(response.data);
+                calculateTotalPrice(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching cart items:', error);
+            });
+    }, []);
+
+    const calculateTotalPrice = (items) => {
+        let totalPrice = 0;
+        items.forEach(item => {
+            totalPrice += item.product.price * item.quantity;
+        });
+        setTotalPrice(totalPrice);
+    };
 
     const handlePayment = (e) => {
         e.preventDefault();
@@ -15,7 +34,7 @@ const Payments = () => {
             cardNumber: cardNumber,
             expiryDate: expiryDate,
             cvv: cvv,
-            total: totalAmount // Zmiana nazwy na 'total'
+            total: totalPrice
         };
 
         axios.post('http://localhost:5000/payments', paymentData)
@@ -30,6 +49,7 @@ const Payments = () => {
     return (
         <div>
             <h2>Payments</h2>
+            <p>Total Price: {totalPrice}</p>
             <form onSubmit={handlePayment}>
                 <label>
                     Card Number:
