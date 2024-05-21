@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 const CartContext = createContext();
@@ -10,6 +10,10 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
+    const contextValue = useMemo(() => {
+        return { cartItems, addToCart, removeFromCart };
+    }, [cartItems]);
+
     const addToCart = (product) => {
         setCartItems([...cartItems, product]);
     };
@@ -19,7 +23,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+        <CartContext.Provider value={contextValue}>
             {children}
         </CartContext.Provider>
     );
