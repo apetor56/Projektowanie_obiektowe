@@ -70,3 +70,17 @@ Należy stworzyć aplikację kliencką wykorzystując bibliotekę React.js. W ra
 ❌ 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz kliencką na dockerze via docker-compose
 
 ❌ 5.0 Należy wykorzystać axios’a oraz dodać nagłówki pod CORS
+
+[**Zadanie 6 Zapaszki Sonar (JS)**](06_zapaszki/)
+
+W ramach zadania VI należy zredukować błędy typu: Bugs, Security Hotspots, Vulnerabilities oraz Code Smells. Błędy powinny być efektem statycznej analizy kodu za pomocą rozwiązania Sonar Cloud (https://sonarcloud.io/). Dodatkowo należy w Readme.md na każdym repozytorium dodać badge SonarCloud do powyższych czterech typów błędów (https://sonarcloud.io/project/information?id=). Należy sprawdzić kod projektu IV z kodem w React’cie.
+
+✅ 3.0 Należy dodać eslint w hookach gita - [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/c13a2f15660ca66b84a515c8f04fe84b96234bc1)
+
+✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji klienckiej)
+
+✅ 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod aplikacji klienckiej)
+
+✅ 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa w kodzie w Sonarze (kod aplikacji klienckiej)
+
+✅ 5.0 Zredukować duplikaty kodu do 0%
