@@ -1,0 +1,31 @@
+#!/bin/bash
+
+root="$(git rev-parse --show-toplevel)"
+eslint=$root"/05_wzorce_bechawioralne/node_modules/.bin/eslint"
+
+cd $root
+
+if [[ ! -x $eslint ]]; then
+  printf "eslint not found\n"
+  exit 1
+fi
+
+files=($(git diff --cached --name-only --diff-filter=ACM | grep '.js'))
+
+if [[ -z $files ]]; then
+  exit 0
+fi
+
+$eslint ${files[@]}
+eslint_return_value=$?
+
+git add ${files[@]}
+
+if [[ ${eslint_return_value} -eq 0 ]]; then
+  printf "commit completed\n"
+else
+  printf "commit error\n"
+  exit 1
+fi
+
+exit $?
