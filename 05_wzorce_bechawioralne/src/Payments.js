@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Payments = () => {
-    const [cartItems, setCartItems] = useState([]);
+    const [setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [cardNumber, setCardNumber] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
@@ -52,16 +52,13 @@ const Payments = () => {
             <p>Total Price: {totalPrice}</p>
             <form onSubmit={handlePayment}>
                 <label>
-                    Card Number:
-                    <input type="text" value={cardNumber} onChange={e => setCardNumber(e.target.value)} />
+                    Card Number: <input type="text" value={cardNumber} onChange={e => setCardNumber(e.target.value)} />
                 </label>
                 <label>
-                    Expiry Date:
-                    <input type="text" value={expiryDate} onChange={e => setExpiryDate(e.target.value)} />
+                    Expiry Date: <input type="text" value={expiryDate} onChange={e => setExpiryDate(e.target.value)} />
                 </label>
                 <label>
-                    CVV:
-                    <input type="text" value={cvv} onChange={e => setCvv(e.target.value)} />
+                    CVV: <input type="text" value={cvv} onChange={e => setCvv(e.target.value)} />
                 </label>
                 <button type="submit">Pay</button>
             </form>
