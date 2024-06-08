@@ -99,6 +99,18 @@ Proszę napisać prostą aplikację w Vaporze, wykorzystując Leaf jako silnik s
 
 ❌ 5.0 Wrzucić aplikację na heroku
 
+[**Zad 8 Mobile first (Android)**](08_mobile_first/)
+
+✅ 3.0 stworzenie listy kategorii oraz produktów - [commit](https://github.com/apetor56/projektowanie_obiektowe/commit/bbbaed0f84152886913a090cbf1298a0a2ceb060)
+
+❌ 3.5 dodać koszyk
+
+❌ 4.0 stworzyć bazę w Realmie
+
+❌ 4.5 dodać płatności w Stripe
+
+❌ 5.0 logowanie i rejestrację via Oauth2 dodać
+
 [**Zadanie 9 Testy**](09_testy/)
 
 Proszę pamiętać o stworzeniu darmowego konta via https://education.github.com/pack.
